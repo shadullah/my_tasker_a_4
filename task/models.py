@@ -8,3 +8,6 @@ class Task(models.Model):
     category = models.ManyToManyField(Category)
     assgine_date = models.DateField()
     is_complete = models.BooleanField()
+
+    def __str__(self):
+        return self.title
