@@ -1,0 +1,46 @@
+{% load static tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% tailwind_css %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>My Tasker</title>
+  </head>
+  <body style="font-family: 'Lato', sans-serif">
+    <!-- navbar start here -->
+    <nav>
+      <div class="flex justify-between max-w-[1200px] mx-auto py-8">
+        <div>
+          <h1 class="text-4xl font-extrabold">My Tasker</h1>
+        </div>
+        <div>
+          <ul class="flex">
+            <li class="text-xl font-bold mx-3">
+              <a href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="text-xl font-bold mx-3">
+              <a href="">Tasks</a>
+            </li>
+            <li class="text-xl font-bold mx-3">
+              <a href="">Add Category</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    {% block content %} {% endblock %}
+
+    <footer class="text-center font-bold my-12">
+      <p>All &copy; Copyright reserved by My Tasker</p>
+    </footer>
+  </body>
+</html>
