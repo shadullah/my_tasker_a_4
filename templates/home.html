@@ -1,4 +1,36 @@
 {% extends "base.html" %} {% block content %}
 
-<h2>thisi s from home page</h2>
+<!-- <h2>this is from home page</h2> -->
+
+
+
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 m-12">
+    {% for task in data %}
+    <div class="rounded-lg mx-5 bg-gray-800 ">
+            <div class="p-5">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white uppercase">{{task.title}}</h5>
+                <p class="italic font-medium text-gray-300">{{task.assgine_date}}</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{task.description}}</p>
+                {% if task.is_complete %}
+                    <p class="text-green-600 font-semibold">Completed</p>
+                {% else %}
+                <p class="text-red-600 font-semibold">Not Completed</p>
+                <div>
+                    <button class="bg-green-600 font-medium px-3 py-2 m-2 rounded-lg"><a href="{% url 'edit_task' task.id %}">Edit</a></button>
+                    <button class="bg-red-600 font-medium px-3 py-2 m-2 rounded-lg"><a href="{% url "delete" task.id %}">Delete</a></button>
+                </div>
+                {% endif %}
+                <p class="text-white">Category: {% for cat in task.category.all %}
+                    <button class="text-sky-500 px-3 py-2 m-2 rounded-lg">{{cat.name}}
+                    </button>
+                    {%endfor%}
+                </p>
+                
+                
+            </div>
+    </div>
+    
+    {% endfor %}
+</div>
+
 {% endblock %}
