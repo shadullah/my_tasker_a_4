@@ -1,5 +1,6 @@
 from django.db import models
 from category.models import Category
+# from . import forms
 
 # Create your models here.
 class Task(models.Model):
@@ -11,3 +12,6 @@ class Task(models.Model):
 
     def __str__(self):
         return self.title
+    
+
+    # birth_date = forms.DateField(widget=NumberInput(attrs={'type': 'date'}))
